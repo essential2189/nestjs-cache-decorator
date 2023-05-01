@@ -1,0 +1,12 @@
+{
+  "roots": ["<rootDir>"],
+  "transform": { "^.+\\.ts$": "ts-jest" },
+  "testMatch": ["**/*.test.ts"],
+  "testEnvironment": "node",
+  "globals": {
+    "ts-jest": {
+      "diagnostics": false,
+      "tsconfig": "tsconfig.json"
+    }
+  }
+}
