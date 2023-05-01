@@ -1,7 +1,7 @@
 {
   "name": "nestjs-cache-decorator",
   "description": "Nestjs cache decorator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "esm/index.js",
@@ -62,11 +62,9 @@
   "keywords": [
     "nestjs",
     "nest",
-    "aws",
-    "system manager",
-    "ssm",
-    "parameter store",
-    "param store"
+    "cache",
+    "decorator",
+    "caching"
   ],
   "bugs": {
     "url": "https://github.com/essential2189/nestjs-cache-decorator/issues"
