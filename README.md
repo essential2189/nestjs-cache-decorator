@@ -4,7 +4,7 @@
 <h2>nestjs-cache-decorator</h2>
 
   <p align="center">
-    NestJS Cache Decorator
+    NestJS Cache Decorator &middot; <a href="https://badge.fury.io/js/nestjs-cache-decorator"><img src="https://badge.fury.io/js/nestjs-cache-decorator.svg" alt="npm version" height="18"></a>
     <br>
     A custom decorator is implemented in Nestjs to provide convenience for caching, called the 'cache decorator'.
   </p>
