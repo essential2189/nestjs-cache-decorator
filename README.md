@@ -210,17 +210,12 @@ pattern string is interpreted:
 ```typescript
 * * * * * *
 | | | | | |
-| | | | |
-day
-of
-week
+| | | | | day of week
 | | | | months
-| | | day
-of
-month
+| | | day of month
 | | hours
 | minutes
-seconds(optional)
+seconds (optional)
 ```
 
 ### Decorator options
