@@ -1,7 +1,7 @@
 {
   "name": "nestjs-cache-decorator",
   "description": "Nestjs cache decorator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "esm/index.js",
