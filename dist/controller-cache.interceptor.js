@@ -77,11 +77,6 @@ let ControllerCacheInterceptor = class ControllerCacheInterceptor {
     }
     trackBy(context) {
         const httpAdapter = this.httpAdapterHost.httpAdapter;
-        const isHttpApp = httpAdapter && !!httpAdapter.getRequestMethod;
-        const cacheMetadata = this.reflector.get(common_1.CACHE_KEY_METADATA, context.getHandler());
-        if (!isHttpApp || cacheMetadata) {
-            return cacheMetadata;
-        }
         const request = context.getArgByIndex(0);
         if (!this.isRequestCacheable(context)) {
             return undefined;

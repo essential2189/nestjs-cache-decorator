@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-import { CACHE_KEY_METADATA, CACHE_MANAGER, Inject, Injectable, Logger, StreamableFile, } from "@nestjs/common";
+import { CACHE_MANAGER, Inject, Injectable, Logger, StreamableFile, } from "@nestjs/common";
 import { of, tap } from "rxjs";
 import { CACHE_OPTIONS, CACHE_STORE } from "./constant";
 import { isNil } from "@nestjs/common/utils/shared.utils";
@@ -74,11 +74,6 @@ let ControllerCacheInterceptor = class ControllerCacheInterceptor {
     }
     trackBy(context) {
         const httpAdapter = this.httpAdapterHost.httpAdapter;
-        const isHttpApp = httpAdapter && !!httpAdapter.getRequestMethod;
-        const cacheMetadata = this.reflector.get(CACHE_KEY_METADATA, context.getHandler());
-        if (!isHttpApp || cacheMetadata) {
-            return cacheMetadata;
-        }
         const request = context.getArgByIndex(0);
         if (!this.isRequestCacheable(context)) {
             return undefined;
