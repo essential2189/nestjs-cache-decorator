@@ -19,12 +19,3 @@ export function LocalCache(options: CacheOptions = {}): MethodDecorator {
 export function RedisCache(options: CacheOptions = {}): MethodDecorator {
   return applyDecorators(SetMetadata(CACHE_OPTIONS, options), SetMetadata(CACHE_STORE, "redis"));
 }
-
-/**
- * Defining Decorator Functions by Redis Cache
- * @param options
- * @constructor
- */
-export function HttpCache(options: CacheOptions = {}): MethodDecorator {
-  return applyDecorators(SetMetadata(CACHE_OPTIONS, options));
-}
