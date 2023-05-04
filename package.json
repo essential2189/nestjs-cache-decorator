@@ -1,7 +1,7 @@
 {
   "name": "nestjs-cache-decorator",
   "description": "Nestjs cache decorator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "esm/index.js",
@@ -11,7 +11,7 @@
     "pnpm": "^8"
   },
   "scripts": {
-    "lint": "eslint --fix \"{src}/**/*.ts\"",
+    "lint": "eslint --fix \"src/**/*.ts\"",
     "test": "jest --detectOpenHandles",
     "build": "rm -rf dist esm && tsc -p tsconfig.build.json && tsc -p tsconfig.esm.json",
     "publish": "npm run build && npm publish"
