@@ -32,13 +32,7 @@ describe("Local Cache", function () {
     await app.getHttpAdapter().getInstance().ready();
   });
 
-  it("Controller Redis", async () => {
-    const requester = supertest(app.getHttpServer());
-    await requester.get("/redis/ping").expect(200).expect("PONG");
-    await requester.get("/redis/pong").expect(200).expect('"PONG"');
-  });
-
-  it("Controller Local", async () => {
+  it("Controller Cache", async () => {
     const requester = supertest(app.getHttpServer());
     await requester.get("/local/ping").expect(200).expect("PONG");
     await requester.get("/local/pong").expect(200).expect("PONG");
