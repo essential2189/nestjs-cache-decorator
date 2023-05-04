@@ -1,6 +1,6 @@
 # compiled output
-# /dist
-# /esm
+/dist
+/esm
 /node_modules
 
 # Logs
