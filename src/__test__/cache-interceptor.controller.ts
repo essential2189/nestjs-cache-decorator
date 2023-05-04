@@ -1,34 +1,12 @@
-import { CACHE_MANAGER, Controller, Get, Inject, UseInterceptors } from "@nestjs/common";
-import { ControllerCacheInterceptor } from "../controller-cache.interceptor";
-import { LocalCache, RedisCache } from "../cache.decorator";
-import { InjectRedis } from "@nestjs-modules/ioredis";
-import Redis from "ioredis";
+import { CACHE_MANAGER, Controller, Get, Inject } from "@nestjs/common";
+import { APICache } from "../cache.decorator";
 import { CacheWithStoreName } from "../interfaces/store-name.interface";
 
 @Controller()
-@UseInterceptors(ControllerCacheInterceptor)
 export class CacheInterceptorController {
-  constructor(
-    @Inject(CACHE_MANAGER) private readonly cache: CacheWithStoreName,
-    @InjectRedis() private readonly redis: Redis,
-  ) {}
+  constructor(@Inject(CACHE_MANAGER) private readonly cache: CacheWithStoreName) {}
 
-  @RedisCache({
-    ttl: 60,
-    validate: (value: any) => Boolean(value),
-    logger: console.log,
-  })
-  @Get("redis/ping")
-  async pingRedis() {
-    return "PONG";
-  }
-
-  @Get("redis/pong")
-  async pongRedis() {
-    return this.redis.get("cache:redis:ping");
-  }
-
-  @LocalCache({
+  @APICache({
     ttl: 60,
     validate: (value: any) => Boolean(value),
     logger: console.log,
