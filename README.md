@@ -98,6 +98,22 @@ export class AppModule {
 
 ## Usage (Controller)
 
+`@APICache({})`
+
+The first cache module that is imported will serve as the storage for the controller cache.
+
+For instance, in this scenario, the controller's cache storage would be set to "memory".
+
+```typescript
+@Module({
+    imports: [
+        CacheDecoratorModule.register({ store: "memory"}),
+        CacheDecoratorModule.register({ store : redisStore}),
+    ],
+})
+export class AppModule {
+```
+
 If the `key` field is empty, the default cache key will be **HTTP URL Path** where `/` is replaced to `:`. If the `key`
 field
 exists, the cache key will be `{http url path}:{http url path}:...:{key}`.
@@ -127,6 +143,8 @@ export class ExampleController {
 ```
 
 ## Usage (Provider)
+
+`@RedisCache({})`, `@LocalCache({})`
 
 If the `key` field is empty, the default cache key will be `{className}:{methodName}:{methodArgs}`. If the `key` field
 exists, the cache key will be `{className}:{methodName}:{key}`.
