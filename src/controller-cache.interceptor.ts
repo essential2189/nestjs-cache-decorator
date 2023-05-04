@@ -9,7 +9,7 @@ import {
   StreamableFile,
 } from "@nestjs/common";
 import { Observable, of, tap } from "rxjs";
-import { CACHE_OPTIONS, CACHE_STORE } from "./constant";
+import { CACHE_OPTIONS } from "./constant";
 import { CacheOptions } from "./interfaces";
 import { isNil } from "@nestjs/common/utils/shared.utils";
 import { HttpAdapterHost, Reflector } from "@nestjs/core";
@@ -41,11 +41,6 @@ export class ControllerCacheInterceptor implements NestInterceptor {
   async intercept(context: ExecutionContext, next: CallHandler<any>): Promise<Observable<any>> {
     const options: CacheOptions = this.reflector.get(CACHE_OPTIONS, context.getHandler());
     if (!options) {
-      return next.handle();
-    }
-    const cacheStore: string = this.reflector.get(CACHE_STORE, context.getHandler());
-
-    if (!cacheStore || cacheStore !== this.cache.store?.name) {
       return next.handle();
     }
 
